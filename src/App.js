@@ -3,14 +3,12 @@ import Header from "./components/Header";
 import Home from "./pages/Home";
 import CityPage from "./pages/CityPage";
 import PostPage from "./pages/PostPage";
-import CitiesContainer from "./components/CitiesContainer";
 
 const App = () => {
   return (
     <div>
       <Header />
       <div className="content">
-        <CitiesContainer />
         <Routes>
           <Route exact path="/" element={<Home />}/>
           <Route path="/cities/san-francisco" element={<CityPage />}/>

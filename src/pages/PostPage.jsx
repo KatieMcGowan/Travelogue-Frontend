@@ -1,3 +1,4 @@
+import CitiesContainer from "../components/CitiesContainer";
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import PostQuery from "../queries/PostQuery";
@@ -14,11 +15,14 @@ const PostPage = () => {
   }, [id]);
 
   return (
-    <div className="show-container">
+    <div className="post-content">
+    <CitiesContainer />
+    <div className="post-container">
       <h1>{post.title}</h1>
       <h3>by {post.poster}</h3>
       <p>{post.body}</p>
     </div>
+    </div>  
   )
 };
 

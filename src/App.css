@@ -60,7 +60,7 @@
   width: 66.65%
 }
 
-.show-container {
+.post-container {
   background-color: rgb(153, 153, 229);
   width: 66.65%
 }
@@ -69,6 +69,7 @@
   display: flex; 
   justify-content: space-between;
 }
+
 .new-post-button {
   border-style: solid;
   border-radius: 50px;
@@ -87,6 +88,16 @@
 }
 
 .content {
+  display: flex;
+  flex-direction: row;
+}
+
+.post-content {
+  display: flex;
+  flex-direction: row;
+}
+
+.city-content {
   display: flex;
   flex-direction: row;
 }
