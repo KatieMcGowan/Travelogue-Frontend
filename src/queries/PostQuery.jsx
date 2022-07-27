@@ -11,7 +11,7 @@ class PostQuery {
   static show = (id) => {
     return fetch(`${url}/${id}`)
     .then(response => response.json())
-    .then(jsonData => jsonData.game)
+    .then(jsonData => jsonData.post)
     .catch(err => console.log(err))
   };
 

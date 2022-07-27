@@ -6,9 +6,7 @@ const Posts = (props) => {
     {props.posts.map(post => {
       return <Post 
               key={post._id}
-              title={post.title}
-              poster={post.poster}
-              body={post.body}
+              post={post}
               />  
     })}
     </div>                

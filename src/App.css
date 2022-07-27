@@ -60,6 +60,11 @@
   width: 66.65%
 }
 
+.show-container {
+  background-color: rgb(153, 153, 229);
+  width: 66.65%
+}
+
 .posts-header {
   display: flex; 
   justify-content: space-between;
@@ -70,7 +75,18 @@
   background-color: orangered;
 }  
 
-.posts-display {
+.posts {
   display: flex;
   flex-direction: column;
+}
+
+.post-display {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
 }

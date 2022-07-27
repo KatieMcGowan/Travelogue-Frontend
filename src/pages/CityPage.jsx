@@ -1,6 +1,6 @@
-import PostsContainer from "./PostsContainer"
+import PostsContainer from "../components/PostsContainer"
 
-const CityContainer = () => {
+const CityPage = () => {
   return(
     <div className="city-container">
       <h2>San Francisco</h2>
@@ -10,4 +10,4 @@ const CityContainer = () => {
   )
 }
 
-export default CityContainer
+export default CityPage
