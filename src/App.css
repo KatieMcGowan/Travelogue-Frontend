@@ -60,6 +60,10 @@
   width: 66.65%
 }
 
+.posts-header {
+  display: flex; 
+  justify-content: space-between;
+}
 .new-post-button {
   border-style: solid;
   border-radius: 50px;
