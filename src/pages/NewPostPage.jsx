@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import PostQuery from "../queries/PostQuery"
+import CitiesContainer from "../components/CitiesContainer";
 
 const NewPost = () => {
   const [state, setState] = useState({
@@ -29,33 +30,38 @@ const NewPost = () => {
   };
 
   return(
-    <div>
-      <h2>New Post</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="form-input">
-          <label htmlFor="title">Title</label>
-          <input
-            type="text"
-            name="title"
-            min="1"
-            max="100"
-            onChange={handleChange}
-            value={state.title}
-          />  
+    <div className="new-post-content">
+      <CitiesContainer />
+      <div className="new-post-container">
+        <div>
+          <h2>New Post</h2>
+          <form onSubmit={handleSubmit}>
+            <div className="form-input">
+              <label htmlFor="title">Title</label>
+              <input
+                type="text"
+                name="title"
+                min="1"
+                max="100"
+                onChange={handleChange}
+                value={state.title}
+              />  
+            </div>
+            <div className="form-input">
+              <label htmlFor="body">Post</label>
+              <input
+                type="textarea"
+                name="body"
+                min="1"
+                max="1000"
+                onChange={handleChange}
+                value={state.body}
+              />  
+            </div>
+            <input type="submit" value="Save"/>
+          </form>
         </div>
-        <div className="form-input">
-          <label htmlFor="body">Post</label>
-          <input
-            type="textarea"
-            name="body"
-            min="1"
-            max="1000"
-            onChange={handleChange}
-            value={state.body}
-          />  
-        </div>
-        <input type="submit" value="Save"/>
-      </form>
+      </div>  
     </div>
   );
 };
