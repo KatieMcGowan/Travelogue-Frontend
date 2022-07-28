@@ -1,24 +1,30 @@
-import React, { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import React, { useState, useEffect } from "react"
+import { useParams, useNavigate } from "react-router-dom"
 import PostQuery from "../queries/PostQuery"
-import CitiesContainer from "../components/CitiesContainer";
+import CitiesContainer from "../components/CitiesContainer"
 
-const NewPostPage = () => {
+const EditPostPage = () => {
   const [state, setState] = useState({
     title: "",
     body: "",
     city: "",
-    poster: "Guest",
+    poster: "",
     comments: [],
   });
 
-  let navigate = useNavigate();
+  let id = useParams().id
+  let navigate = useNavigate()
+
+  useEffect(() => {
+    PostQuery.show(id).then(data => setState(data))
+  }, [id]);
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    PostQuery.create(state)
+    PostQuery.update(id, state)
     .then(data => {
-      navigate("/cities/san-francisco")
+      navigate(`/cities/san-francisco/${id}`)
     });
   };
 
@@ -30,17 +36,18 @@ const NewPostPage = () => {
   };
 
   return(
-    <div className="new-post-content">
+    <div className="edit-post-content">
       <CitiesContainer />
-      <div className="new-post-container">
+      <div className="edit-post-container">
         <div>
-          <h2>New Post</h2>
+          <h2>Edit Post</h2>
           <form onSubmit={handleSubmit}>
             <div className="form-input">
               <label htmlFor="title">Title</label>
               <input
                 type="text"
                 name="title"
+                placeholder={state.title}
                 min="1"
                 max="100"
                 onChange={handleChange}
@@ -52,6 +59,7 @@ const NewPostPage = () => {
               <input
                 type="textarea"
                 name="body"
+                placeholder={state.body}
                 min="1"
                 max="1000"
                 onChange={handleChange}
@@ -66,4 +74,4 @@ const NewPostPage = () => {
   );
 };
 
-export default NewPostPage
+export default EditPostPage

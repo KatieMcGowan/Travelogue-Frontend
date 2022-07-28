@@ -1,6 +1,6 @@
-import CitiesContainer from "../components/CitiesContainer";
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+import CitiesContainer from "../components/CitiesContainer";
 import PostQuery from "../queries/PostQuery";
 
 const PostPage = () => {
@@ -21,6 +21,7 @@ const PostPage = () => {
       <h1>{post.title}</h1>
       <h3>by {post.poster}</h3>
       <p>{post.body}</p>
+      <Link to={`/cities/san-francisco/${id}/edit`}>Edit Post</Link>
     </div>
     </div>  
   )

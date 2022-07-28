@@ -3,7 +3,8 @@ import Header from "./components/Header";
 import Home from "./pages/Home";
 import CityPage from "./pages/CityPage";
 import PostPage from "./pages/PostPage";
-import NewPost from "./pages/NewPostPage";
+import NewPostPage from "./pages/NewPostPage";
+import EditPostPage from "./pages/EditPostPage";
 
 const App = () => {
   return (
@@ -14,7 +15,8 @@ const App = () => {
           <Route exact path="/" element={<Home />}/>
           <Route path="/cities/san-francisco" element={<CityPage />}/>
           <Route path="/cities/san-francisco/:id" element={<PostPage />}/>
-          <Route path="/cities/san-francisco/new" element={<NewPost />}/>
+          <Route path="/cities/san-francisco/new" element={<NewPostPage />}/>
+          <Route path="/cities/san-francisco/:id/edit" element={<EditPostPage />}/>
         </Routes>  
       </div>
     </div>

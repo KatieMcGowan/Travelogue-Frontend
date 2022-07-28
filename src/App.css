@@ -69,12 +69,16 @@
   width: 66.65%
 }
 
+.post-content {
+  display: flex;
+  flex: row;
+}
 .new-post-button {
   border-style: solid;
   border-radius: 50px;
   background-color: orangered;
 } 
- 
+
 .new-post-content {
   display: flex;
   flex-direction: row;
@@ -82,6 +86,17 @@
 }
 
 .new-post-container {
+  background-color: rgb(153, 153, 229);
+  width: 66.65%
+}
+
+.edit-post-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.edit-post-container {
   background-color: rgb(153, 153, 229);
   width: 66.65%
 }
