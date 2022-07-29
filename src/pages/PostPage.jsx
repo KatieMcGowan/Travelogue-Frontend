@@ -22,12 +22,18 @@ const PostPage = () => {
     }
   };
 
+  //Date functions
+  let illegibleDate = post.createdAt
+  let legibleDate = new Date(illegibleDate)
+  let postDate = legibleDate.toDateString()
+
   return (
     <div className="post-content">
       <CitiesContainer />
       <div className="post-container">
         <h1>{post.title}</h1>
         <h3>by {post.poster}</h3>
+        <h4>{postDate}</h4>
         <p>{post.body}</p>
         <Link to={`/cities/san-francisco/${id}/edit`}>Edit Post</Link>
         <button onClick={() => {handleClick(false)}}>
