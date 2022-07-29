@@ -44,7 +44,7 @@ const PostPage = () => {
             id={id}
             display={hidden}
             handleClick={handleClick}
-          />  
+          />
         </div>
       </div>
     </div>  

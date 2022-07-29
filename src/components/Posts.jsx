@@ -1,9 +1,15 @@
 import Post from "./Post";
 
 const Posts = (props) => {
+
+  let newestPosts = []
+
+  for (let i = props.posts.length - 1; i >= 0; i--) {
+    newestPosts.push(props.posts[i]);
+  }
   return (
     <div>
-    {props.posts.map(post => {
+    {newestPosts.map(post => {
       return <Post 
               key={post._id}
               post={post}
