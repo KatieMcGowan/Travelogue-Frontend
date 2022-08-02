@@ -23,10 +23,18 @@ const EditPostPage = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    PostQuery.update(id, state)
-    .then(data => {
-      navigate(`/cities/${city}/${id}`)
-    });
+    if (state.title.length >= 1 && state.title.length <= 200 && state.body.length >= 1) {
+      PostQuery.create(state)
+      .then(data => {
+        navigate(`/cities/${city}/${id}`)
+      });
+    } else if (state.title.length < 1) {
+      console.log("Post title is too short")
+    } else if (state.title.length >= 200) {
+      console.log("Post title is too long") 
+    } else if (state.body.length < 1) {
+      console.log("Post body is too short")
+    }
   };
 
   const handleChange = (event) => {
@@ -45,27 +53,33 @@ const EditPostPage = () => {
           <form onSubmit={handleSubmit}>
             <div className="form-input">
               <label htmlFor="title">Title</label>
+              <br/>
               <input
                 type="text"
                 name="title"
                 placeholder={state.title}
                 min="1"
                 max="100"
+                required={true}
                 onChange={handleChange}
                 value={state.title}
-              />  
+              />
+              <span></span>  
             </div>
             <div className="form-input">
               <label htmlFor="body">Post</label>
+              <br/>
               <input
                 type="textarea"
                 name="body"
                 placeholder={state.body}
                 min="1"
                 max="1000"
+                required={true}
                 onChange={handleChange}
                 value={state.body}
-              />  
+              />
+              <span></span>  
             </div>
             <input type="submit" value="Save"/>
           </form>
