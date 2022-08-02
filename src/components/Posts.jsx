@@ -1,9 +1,6 @@
 import Post from "./Post";
 
 const Posts = (props) => {
-
-  console.log(props)
-
   let newestPosts = []
 
   for (let i = props.posts.length - 1; i >= 0; i--) {

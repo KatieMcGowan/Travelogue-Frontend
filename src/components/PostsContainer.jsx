@@ -11,25 +11,18 @@ const PostsContainer = () => {
   let city = useParams().city
 
   useEffect(() => {
-    PostQuery.all().then(data => setState({
-      posts: data
-    }))
+    let sortedCities = [];
+    PostQuery.all().then(data => {       
+      for (let i = 0; i < data.length; i++) {
+        if (data[i].city === city) {
+          sortedCities.push(data[i])
+        };
+      };
+      setState({
+        posts: sortedCities
+      });
+    });
   }, [])
-
-  // useEffect(() => {
-  //   PostQuery.all().then(data => {       
-  //     for (let i = 0; i < data.length; i++) {
-  //       // console.log(data[i].city)
-  //       if (data[i].city === city) {
-  //         setState({
-  //           posts: data[i]
-  //         });
-  //       };
-  //     };
-  //   });
-  // }, [])
-
-  // console.log(state)
 
   return(
     <div className="posts-container">
