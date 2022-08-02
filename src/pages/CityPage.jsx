@@ -10,13 +10,28 @@ const CityPage = () => {
     return string.charAt(0).toUpperCase() + string.slice(1)
   }
 
+  const handleHyphens = (string) => {
+    let unHyphenated = string.replace("-", " ");
+    let split = unHyphenated.split(" ")
+    let upperCase = split.map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+    return upperCase.join(" ");
+  };
+
+  const cityConvert = (string) => {
+    if (string.includes("-")) {
+      return handleHyphens(string)
+    } else {
+      return capitalizeCity(string)
+    }
+  }
+
   return(
     <div className="city-content">
       <CitiesContainer />
       <div className="city-container">
           <div className="city-info">
             <div className="city-text">
-              <h2>{capitalizeCity(city)}</h2>
+              <h2>{cityConvert(city)}</h2>
             </div>
             <div className="city-image">
               <img src={sanfrancisco} height="100" width="200" alt="cable-car"/>

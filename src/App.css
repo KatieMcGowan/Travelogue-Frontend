@@ -59,6 +59,28 @@
   width: 33.35%;
 }
 
+.cities-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.city-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px;
+  margin: 10px;
+  border: 5px solid blue;
+  border-radius: 20px;
+  width: 80%;;
+}
+
+.nav-image {
+  margin: 0px 10px;
+}
+
 .city-container {
   background-color: rgb(153, 153, 229);
   width: 66.65%
