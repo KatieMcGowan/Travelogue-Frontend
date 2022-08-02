@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom"
 
 const Post = (props) => {
+
+  // console.log(props)
   return(
     <div>
       <div className="post">

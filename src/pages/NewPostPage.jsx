@@ -1,18 +1,19 @@
 import React, { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import PostQuery from "../queries/PostQuery"
 import CitiesContainer from "../components/CitiesContainer";
 
 const NewPostPage = () => {
+  let city = useParams().city
+  let navigate = useNavigate();
+
   const [state, setState] = useState({
     title: "",
     body: "",
-    city: "",
+    city: city,
     poster: "Guest",
     comments: [],
   });
-
-  let navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();

@@ -13,6 +13,7 @@ const EditPostPage = () => {
   });
 
   let id = useParams().id
+
   let navigate = useNavigate()
 
   useEffect(() => {
