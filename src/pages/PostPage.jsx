@@ -8,6 +8,7 @@ const PostPage = () => {
   const [post, setPost] = useState({})
   const [hidden, setHidden] = useState(true);
 
+  let city = useParams().city
   let id = useParams().id;
 
   useEffect(() => {
@@ -35,7 +36,7 @@ const PostPage = () => {
         <h3>by {post.poster}</h3>
         <h4>{postDate}</h4>
         <p>{post.body}</p>
-        <Link to={`/cities/san-francisco/${id}/edit`}>Edit Post</Link>
+        <Link to={`/cities/${city}/${id}/edit`}>Edit Post</Link>
         <button onClick={() => {handleClick(false)}}>
           Delete Post
         </button>
@@ -52,5 +53,3 @@ const PostPage = () => {
 };
 
 export default PostPage
-
-        // PostQuery.delete(id).then(data => {navigate("/cities/san-francisco")})}>

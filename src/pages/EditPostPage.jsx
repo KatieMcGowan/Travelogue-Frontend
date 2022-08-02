@@ -12,8 +12,8 @@ const EditPostPage = () => {
     comments: [],
   });
 
+  let city = useParams().city
   let id = useParams().id
-
   let navigate = useNavigate()
 
   useEffect(() => {
@@ -25,7 +25,7 @@ const EditPostPage = () => {
     event.preventDefault();
     PostQuery.update(id, state)
     .then(data => {
-      navigate(`/cities/san-francisco/${id}`)
+      navigate(`/cities/${city}/${id}`)
     });
   };
 

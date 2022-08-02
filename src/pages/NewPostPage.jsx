@@ -19,7 +19,7 @@ const NewPostPage = () => {
     event.preventDefault();
     PostQuery.create(state)
     .then(data => {
-      navigate("/cities/san-francisco")
+      navigate(`/cities/${city}`)
     });
   };
 

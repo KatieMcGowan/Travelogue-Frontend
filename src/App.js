@@ -13,10 +13,6 @@ const App = () => {
       <div className="content">
         <Routes>
           <Route exact path="/" element={<Home />}/>
-          {/* <Route path="/cities/san-francisco" element={<CityPage />}/>
-          <Route path="/cities/san-francisco/:id" element={<PostPage />}/>
-          <Route path="/cities/san-francisco/new" element={<NewPostPage />}/>
-          <Route path="/cities/san-francisco/:id/edit" element={<EditPostPage />}/> */}
           <Route path="/cities/:city" element={<CityPage />}/>
           <Route path="/cities/:city/:id" element={<PostPage />}/>
           <Route path="/cities/:city/new" element={<NewPostPage />}/>

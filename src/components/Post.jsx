@@ -6,7 +6,7 @@ const Post = (props) => {
   return(
     <div>
       <div className="post">
-        <Link to={`/cities/san-francisco/${props.post._id}`}>
+        <Link to={`/cities/${props.post.city}/${props.post._id}`}>
           <h4>{props.post.title}</h4>
         </Link>  
         <span className="post-poster">by {props.post.poster}</span>
