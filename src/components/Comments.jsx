@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom"
 import CommentQuery from "../queries/CommentQuery"
 import Comment from "./Comment"
 
-const Comments = (props) => {
+const Comments = () => {
   const [state, setState] = useState({
     comments: []
   })
@@ -23,14 +23,14 @@ const Comments = (props) => {
         comments: sortedComments
       });
     });
-  }, [])
+  }, [id])
   
   for (let i = state.comments.length - 1; i >= 0; i--) {
     newestComments.push(state.comments[i])
   }
 
   console.log(newestComments)
-  
+
   return (
     <div>
       {newestComments.map(comment => {

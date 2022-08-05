@@ -1,3 +1,4 @@
+import React, { useState } from "react"
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./pages/Home";
@@ -5,6 +6,8 @@ import CityPage from "./pages/CityPage";
 import PostPage from "./pages/PostPage";
 import NewPostPage from "./pages/NewPostPage";
 import EditPostPage from "./pages/EditPostPage";
+import SignUpPage from "./pages/SignUpPage";
+import LogInPage from "./pages/LogInPage";
 
 const App = () => {
   return (
@@ -13,6 +16,8 @@ const App = () => {
       <div className="content">
         <Routes>
           <Route exact path="/" element={<Home />}/>
+          <Route path="/login" element={<LogInPage />}/>
+          <Route path="/signup" element={<SignUpPage />}/>
           <Route path="/cities/:city" element={<CityPage />}/>
           <Route path="/cities/:city/:id" element={<PostPage />}/>
           <Route path="/cities/:city/new" element={<NewPostPage />}/>

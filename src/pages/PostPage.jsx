@@ -39,9 +39,7 @@ const PostPage = () => {
         <h4>{postDate}</h4>
         <p>{post.body}</p>
         <Link to={`/cities/${city}/${id}/edit`}>Edit Post</Link>
-        <button onClick={() => {handleClick(false)}}>
-          Delete Post
-        </button>
+        <button onClick={() => {handleClick(false)}}>Delete Post</button>
         <div id="modal" className={hidden ? 'hidden' : "modal"}>
           <DeleteModal
             id={id}
@@ -51,12 +49,8 @@ const PostPage = () => {
         </div>
         <div className="comments-content">
           <h3>Comments</h3>
-          <NewComment
-            postbody={post.body}
-          />  
-          <Comments
-            comments={post.comments}
-          /> 
+          <NewComment postbody={post.body}/>  
+          <Comments comments={post.comments}/> 
         </div>
       </div>
     </div>  
