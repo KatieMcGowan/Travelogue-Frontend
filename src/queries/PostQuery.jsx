@@ -26,13 +26,13 @@ class PostQuery {
     .then(response => response.json())
   };
 
-  static update = (id, gameData) => {
+  static update = (id, postData) => {
     return fetch(`${url}/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(gameData)
+      body: JSON.stringify(postData)
     })
     .then(response => response.json())
   };

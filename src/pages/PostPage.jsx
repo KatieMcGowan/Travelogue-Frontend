@@ -3,6 +3,8 @@ import { useParams, Link } from "react-router-dom";
 import CitiesContainer from "../components/CitiesContainer";
 import PostQuery from "../queries/PostQuery";
 import DeleteModal from "../components/DeleteModal"
+import Comments from "../components/Comments";
+import NewComment from "../components/NewComment";
 
 const PostPage = () => {
   const [post, setPost] = useState({})
@@ -14,7 +16,7 @@ const PostPage = () => {
   useEffect(() => {
     PostQuery.show(id).then(data => setPost(data))
   }, [id]);
-
+  
   const handleClick = (boolean) => {
     if (boolean === false) {
       setHidden(false);
@@ -46,6 +48,15 @@ const PostPage = () => {
             display={hidden}
             handleClick={handleClick}
           />
+        </div>
+        <div className="comments-content">
+          <h3>Comments</h3>
+          <NewComment
+            postbody={post.body}
+          />  
+          <Comments
+            comments={post.comments}
+          /> 
         </div>
       </div>
     </div>  
