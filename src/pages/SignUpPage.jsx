@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import UserQuery from "../queries/UserQuery"
 
-const SignUpPage = () => {
+const SignUpPage = (props) => {
   const [state, setState] = useState({
     username: "",
     password: "",
@@ -16,6 +16,7 @@ const SignUpPage = () => {
     event.preventDefault();
       UserQuery.create(state)
       .then(data => {
+        props.authCheck(true)
         navigate(`/`)
       });
   };
@@ -31,7 +32,7 @@ const SignUpPage = () => {
     <div className="new-user-content">
     <div className="new-user-container">
       <div>
-        <h2>New Post</h2>
+        <h2>Sign Up</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-input">
             <label htmlFor="username">Username</label>

@@ -22,12 +22,12 @@ const App = () => {
 
   return (
     <div>
-      <Header />
+      <Header loggedIn={state.loggedIn}/>
       <div className="content">
         <Routes>
           <Route exact path="/" element={<Home />}/>
           <Route path="/login" element={<LogInPage authCheck={authCheck}/>}/>
-          <Route path="/signup" element={<SignUpPage />}/>
+          <Route path="/signup" element={<SignUpPage authCheck={authCheck}/>}/>
           <Route path="/cities/:city" element={<CityPage loggedIn={state.loggedIn}/>}/>
           <Route path="/cities/:city/:id" element={<PostPage loggedIn={state.loggedIn}/>}/>
           <Route path="/cities/:city/new" element={<NewPostPage loggedIn={state.loggedIn}/>}/>

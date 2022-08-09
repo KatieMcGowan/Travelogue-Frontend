@@ -1,6 +1,6 @@
 import Nav from "./Nav"
 
-const Header = () => {
+const Header = (props) => {
   return(
     <div className="header-wrapper">
       <div className="header-left">
@@ -8,7 +8,7 @@ const Header = () => {
         <h1 className="header-text">Travelogue</h1>
       </div>
       <div className="header-right">
-        <Nav />
+        <Nav loggedIn={props.loggedIn}/>
       </div>  
     </div>
   )  
