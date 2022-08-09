@@ -7,45 +7,32 @@ const Nav = (props) => {
     right: "Sign Up"
   });
 
-  //when logged in: useState({left: "View Profile", right: "Log-out"})
+  const [links, setLinks] = useState({
+    left: "/login",
+    right: "/signup"
+  })
+
   useEffect(() => {
     if (props.loggedIn === true) {
     setState({
       left: "Home",
       right: "Log Out"
     });
-  }}, [])
-
-//   <Link to={`/cities/${props.post.city}/${props.post._id}`}>
-//   <h4>{props.post.title}</h4>
-// </Link>  
-
-{/* <button onClick={() => {handleClick(false)}}>Delete Post</button>
-<div id="modal" className={hidden ? 'hidden' : "modal"}>
-  <DeleteModal
-    id={id}
-    display={hidden}
-    handleClick={handleClick}
-  />
-</div> */}
-
-// const handleClick = (boolean) => {
-//   if (boolean === false) {
-//     setHidden(false);
-//   } else {
-//     setHidden(true);
-//   }
-// };
+    setLinks({
+      left: "/",
+      right: "/"
+    })
+  }}, [props.loggedIn])
 
 
   return(
     <div className="nav-wrapper">
       <div className="nav-left">
-        <h1><Link to={"/login"}>{state.left}</Link></h1>
+        <h1><Link to={links.left}>{state.left}</Link></h1>
       </div>
       <div className="nav-space">|</div>
       <div className="nav-right">
-        <h1><Link to={"/signup"}>{state.right}</Link></h1>
+        <h1><Link to={links.right} onClick={() => props.authCheck(false)}>{state.right}</Link></h1>
       </div>
     </div>
   ) 

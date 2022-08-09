@@ -35,6 +35,26 @@ const PostPage = (props) => {
   let legibleDate = new Date(illegibleDate)
   let postDate = legibleDate.toDateString()
 
+  //City Name Converstion:
+  const capitalizeCity = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1)
+  }
+
+  const handleHyphens = (string) => {
+    let unHyphenated = string.replace("-", " ");
+    let split = unHyphenated.split(" ")
+    let upperCase = split.map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+    return upperCase.join(" ");
+  };
+
+  const cityConvert = (string) => {
+    if (string.includes("-")) {
+      return handleHyphens(string)
+    } else {
+      return capitalizeCity(string)
+    }
+  }
+
   return (
     <div className="post-content">
       <CitiesContainer />
@@ -57,6 +77,7 @@ const PostPage = (props) => {
           <NewComment postbody={post.body}/>  
           <Comments comments={post.comments}/> 
         </div>
+        <Link to={`/cities/${city}`}>Back to {cityConvert(city)}</Link>
       </div>
     </div>  
   )

@@ -4,16 +4,14 @@ import CitiesContainer from "../components/CitiesContainer"
 import PostsContainer from "../components/PostsContainer"
 
 const CityPage = (props) => {
-  //Authentication Check:
   let navigate = useNavigate();
-
+  
+  //Authentication Check:
   const checkedLoggedIn = () => {
     if (props.loggedIn !== true) {
       navigate("/login") 
     } else return;
   }
-
-  console.log(props)
 
   useEffect(() => {
     checkedLoggedIn();

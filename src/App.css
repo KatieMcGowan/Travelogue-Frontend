@@ -5,6 +5,10 @@
   font-family: 'Mochiy Pop One', sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
 .header-wrapper {
   background-color: rgb(239, 179, 59);
   display: flex;

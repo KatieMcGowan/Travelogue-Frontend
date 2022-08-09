@@ -22,7 +22,7 @@ const App = () => {
 
   return (
     <div>
-      <Header loggedIn={state.loggedIn}/>
+      <Header loggedIn={state.loggedIn} authCheck={authCheck}/>
       <div className="content">
         <Routes>
           <Route exact path="/" element={<Home />}/>
