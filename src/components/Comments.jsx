@@ -29,8 +29,6 @@ const Comments = () => {
     newestComments.push(state.comments[i])
   }
 
-  console.log(newestComments)
-
   return (
     <div>
       {newestComments.map(comment => {

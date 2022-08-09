@@ -1,9 +1,9 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import PostQuery from "../queries/PostQuery"
 import CitiesContainer from "../components/CitiesContainer";
 
-const NewPostPage = () => {
+const NewPostPage = (props) => {
   let city = useParams().city
   let navigate = useNavigate();
 
@@ -14,6 +14,18 @@ const NewPostPage = () => {
     poster: "Guest",
     comments: [],
   });
+
+  //Authentication check
+  const checkedLoggedIn = () => {
+    if (props.loggedIn !== true) {
+      navigate("/login") 
+    } else return;
+  }
+
+  useEffect(() => {
+    checkedLoggedIn();
+  });
+
 
   const handleSubmit = (event) => {
     event.preventDefault();

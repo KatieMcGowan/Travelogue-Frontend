@@ -10,19 +10,29 @@ import SignUpPage from "./pages/SignUpPage";
 import LogInPage from "./pages/LogInPage";
 
 const App = () => {
+  const [state, setState] = useState({
+    loggedIn: false
+  })
+
+  const authCheck = (boolean) => {
+    setState({
+      loggedIn: boolean
+    })
+  }
+
   return (
     <div>
       <Header />
       <div className="content">
         <Routes>
           <Route exact path="/" element={<Home />}/>
-          <Route path="/login" element={<LogInPage />}/>
+          <Route path="/login" element={<LogInPage authCheck={authCheck}/>}/>
           <Route path="/signup" element={<SignUpPage />}/>
-          <Route path="/cities/:city" element={<CityPage />}/>
-          <Route path="/cities/:city/:id" element={<PostPage />}/>
-          <Route path="/cities/:city/new" element={<NewPostPage />}/>
-          <Route path="/cities/:city/:id/edit" element={<EditPostPage />}/>
-        </Routes>  
+          <Route path="/cities/:city" element={<CityPage loggedIn={state.loggedIn}/>}/>
+          <Route path="/cities/:city/:id" element={<PostPage loggedIn={state.loggedIn}/>}/>
+          <Route path="/cities/:city/new" element={<NewPostPage loggedIn={state.loggedIn}/>}/>
+          <Route path="/cities/:city/:id/edit" element={<EditPostPage loggedIn={state.loggedIn}/>}/>
+        </Routes>   
       </div>
     </div>
   );

@@ -1,8 +1,25 @@
-import { useParams } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import CitiesContainer from "../components/CitiesContainer"
 import PostsContainer from "../components/PostsContainer"
 
-const CityPage = () => {
+const CityPage = (props) => {
+  //Authentication Check:
+  let navigate = useNavigate();
+
+  const checkedLoggedIn = () => {
+    if (props.loggedIn !== true) {
+      navigate("/login") 
+    } else return;
+  }
+
+  console.log(props)
+
+  useEffect(() => {
+    checkedLoggedIn();
+  });
+
+  //City Name Functions: 
   let city = useParams().city
 
   const capitalizeCity = (string) => {

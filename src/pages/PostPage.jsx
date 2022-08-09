@@ -1,22 +1,27 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import CitiesContainer from "../components/CitiesContainer";
 import PostQuery from "../queries/PostQuery";
 import DeleteModal from "../components/DeleteModal"
 import Comments from "../components/Comments";
 import NewComment from "../components/NewComment";
 
-const PostPage = () => {
+const PostPage = (props) => {
   const [post, setPost] = useState({})
   const [hidden, setHidden] = useState(true);
 
   let city = useParams().city
   let id = useParams().id;
+  let navigate = useNavigate();
 
   useEffect(() => {
+    if (props.loggedIn !== true) {
+      navigate("/login") 
+    } else {
     PostQuery.show(id).then(data => setPost(data))
-  }, [id]);
+  }}, []);
   
+  //Delete Modal Function:
   const handleClick = (boolean) => {
     if (boolean === false) {
       setHidden(false);
@@ -25,7 +30,7 @@ const PostPage = () => {
     }
   };
 
-  //Date functions
+  //Date Conversion:
   let illegibleDate = post.createdAt
   let legibleDate = new Date(illegibleDate)
   let postDate = legibleDate.toDateString()

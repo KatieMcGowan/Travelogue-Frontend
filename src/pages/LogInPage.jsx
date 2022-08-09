@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import UserQuery from "../queries/UserQuery";
 
-const LogInPage = () => {
+const LogInPage = (props) => {
   const [state, setState] = useState ({
     username: "",
     password: ""
@@ -19,17 +19,20 @@ const LogInPage = () => {
     });
   }, [])
 
+  let navigate = useNavigate();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     for (let i = 0; i < users.users.length; i++) {
       if (users.users[i].username === state.username && users.users[i].password === state.password) {
         console.log("Log in succeeded")
-        return
-      } else {
-        console.log("Log in failed")
-        return
-      }
-    }
+        props.authCheck(true);
+        navigate("/")
+      // } else {
+      //   console.log("Log in failed")
+      //   return
+      // }
+    }}
   };
 
   const handleChange = (event) => {
@@ -40,7 +43,7 @@ const LogInPage = () => {
   };
 
   return (
-    <div className="new-comment-content">
+    <div className="login-content">
         <form onSubmit={handleSubmit}>
           <div className="form-input">
             <label htmlFor="username">Username</label>
